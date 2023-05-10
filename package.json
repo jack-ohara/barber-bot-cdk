@@ -8,7 +8,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "deploy": "cp package.json package-lock.json tsconfig.json ./src/lambda/barber-bot/config-files && cdk deploy --profile personal && rm ./src/lambda/barber-bot/config-files/*"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.115",
@@ -22,9 +23,11 @@
     "typescript": "~4.9.4"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.328.0",
+    "@sparticuz/chromium": "^113.0.1",
     "aws-cdk-lib": "2.63.2",
-    "aws-chrome-lambda-layer": "github:jack-ohara/aws-chrome-lambda-layer",
     "constructs": "^10.0.0",
+    "puppeteer-core": "^20.1.1",
     "source-map-support": "^0.5.21"
   }
 }

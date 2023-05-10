@@ -1,9 +1,0 @@
-FROM public.ecr.aws/lambda/nodejs:18
-
-COPY package.json package-lock.json tsconfig.json src/lambda/* ${LAMBDA_TASK_ROOT}
-
-RUN npm ci
-RUN npm run build
-RUN rm *.ts ./src/*.ts
-
-CMD ["barber-bot-handler.handler"]
