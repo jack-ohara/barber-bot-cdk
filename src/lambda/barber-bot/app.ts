@@ -35,6 +35,8 @@ export const handler = async () => {
     // });
 
     // await s3Client.send(putObject);
+  } catch (e) {
+    console.log(e);
   } finally {
     console.log("closing...");
     await browser?.close();
