@@ -24,10 +24,9 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.328.0",
-    "@sparticuz/chromium": "^113.0.1",
     "aws-cdk-lib": "2.63.2",
     "constructs": "^10.0.0",
-    "puppeteer-core": "^20.1.1",
+    "puppeteer": "^20.1.2",
     "source-map-support": "^0.5.21"
   }
 }

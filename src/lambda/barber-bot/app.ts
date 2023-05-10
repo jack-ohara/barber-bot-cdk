@@ -1,5 +1,4 @@
-import chromium from "@sparticuz/chromium";
-import puppeteer, { Browser } from "puppeteer-core";
+import puppeteer, { Browser } from "puppeteer";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 
 export const handler = async () => {
@@ -8,11 +7,7 @@ export const handler = async () => {
   try {
     console.log("launching browser...");
     browser = await puppeteer.launch({
-      args: chromium.args,
-      defaultViewport: chromium.defaultViewport,
-      executablePath: await chromium.executablePath(),
       headless: "new",
-      ignoreHTTPSErrors: true,
     });
 
     console.log("new page...");
