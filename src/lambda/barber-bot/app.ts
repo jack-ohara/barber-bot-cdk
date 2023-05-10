@@ -25,16 +25,16 @@ export const handler = async () => {
     });
 
     console.log("screenshotting...");
-    const screenshot = await page.screenshot();
+    const screenshot = await page.screenshot({ path: "./screenshot.jpg" });
 
-    const s3Client = new S3Client({});
-    const putObject = new PutObjectCommand({
-      Bucket: process.env.SCREENSHOT_BUCKET_NAME,
-      Key: "page-screenshot.jpg",
-      Body: screenshot,
-    });
+    // const s3Client = new S3Client({});
+    // const putObject = new PutObjectCommand({
+    //   Bucket: process.env.SCREENSHOT_BUCKET_NAME,
+    //   Key: "page-screenshot.jpg",
+    //   Body: screenshot,
+    // });
 
-    await s3Client.send(putObject);
+    // await s3Client.send(putObject);
   } finally {
     console.log("closing...");
     await browser?.close();
